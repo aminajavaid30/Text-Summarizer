@@ -82,10 +82,13 @@ if uploaded_file:
     # Generate summary
     if st.button('Generate Summary'):
         with st.spinner("Generating summary..."):
-            if(uploaded_file.type == "application/pdf"):
-                pdf_file_path = temp_path
-                summary = text_summarizer_from_pdf(temp_path)
-                st.success(summary)
-            else:
-                summary = summarizer(text, max_length=1000, min_length=30, do_sample=False)
-                st.success(summary[0]['summary_text'])
+            try:
+                if(uploaded_file.type == "application/pdf"):
+                    pdf_file_path = temp_path
+                    summary = text_summarizer_from_pdf(temp_path)
+                    st.success(summary)
+                else:
+                    summary = summarizer(text, max_length=1000, min_length=30, do_sample=False)
+                    st.success(summary[0]['summary_text'])
+            except Exception as e:
+                st.write(f"Failed to generate summary. Your file may have some problem. Please try again!")
