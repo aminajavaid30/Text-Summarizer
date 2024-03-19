@@ -37,18 +37,19 @@ def read_pdf(file):
 
 # Function for text summarization from pdf
 def text_summarizer_from_pdf(pdf_path):
-    pdf_text = extract_text_from_pdf(pdf_path)
+    # pdf_text = extract_text_from_pdf(pdf_path)
 
-    model_name = "facebook/bart-large-cnn"
-    model = BartForConditionalGeneration.from_pretrained(model_name)
-    tokenizer = BartTokenizer.from_pretrained(model_name)
+    # model_name = "facebook/bart-large-cnn"
+    # model = BartForConditionalGeneration.from_pretrained(model_name)
+    # tokenizer = BartTokenizer.from_pretrained(model_name)
 
-    inputs = tokenizer.encode("summarize: " + pdf_text, return_tensors="pt", max_length=1024, truncation=True)
-    summary_ids = model.generate(inputs, max_length=150, min_length=50, length_penalty=2.0, num_beams=4, early_stopping=True)
+    # inputs = tokenizer.encode("summarize: " + pdf_text, return_tensors="pt", max_length=1024, truncation=True)
+    # summary_ids = model.generate(inputs, max_length=150, min_length=50, length_penalty=2.0, num_beams=4, early_stopping=True)
 
-    summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
-    formatted_summary = "\n".join(textwrap.wrap(summary, width=80))
-    return formatted_summary
+    # summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
+    # formatted_summary = "\n".join(textwrap.wrap(summary, width=80))
+    # return formatted_summary
+    return ""
 
 # Summarizer pipeline for txt and docx files
 summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
