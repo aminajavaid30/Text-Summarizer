@@ -1,7 +1,4 @@
 import streamlit as st
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 from docx import Document
 
 import fitz  # PyMuPDF
@@ -61,7 +58,6 @@ st.subheader("📁 Upload a pdf, docx or text file to generate a short summary")
 
 # Sidebar to upload file
 uploaded_file = st.sidebar.file_uploader("Choose a file", type=["txt", "pdf", "docx"])
-st.set_option('deprecation.showPyplotGlobalUse', False)
 
 if uploaded_file:
     file_details = {"FileName:" : uploaded_file.name, "FileType:" : uploaded_file.type, "FileSize:" : uploaded_file.size}
