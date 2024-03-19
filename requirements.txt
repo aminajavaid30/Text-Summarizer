@@ -1,5 +1,6 @@
 docx==0.2.4
 PyMuPDF
+fitz==0.0.1.dev2
 python_docx==1.1.0
 streamlit==1.32.2
 torch
