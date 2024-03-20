@@ -24,10 +24,10 @@ def extract_text_from_pdf(file):
 summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
 
 st.title("Text Summarizer")
-st.subheader("📁 Upload a pdf, docx or text file to generate a short summary")
+st.subheader("📁 Upload a docx or text file to generate a short summary")
 
 # Sidebar to upload file
-uploaded_file = st.sidebar.file_uploader("Choose a file", type=["txt", "pdf", "docx"])
+uploaded_file = st.sidebar.file_uploader("Choose a file", type=["txt", "docx"])
 
 if uploaded_file:
     file_details = {"FileName:" : uploaded_file.name, "FileType:" : uploaded_file.type, "FileSize:" : uploaded_file.size}
@@ -42,7 +42,7 @@ if uploaded_file:
     elif uploaded_file.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
         text = read_docx(uploaded_file)
     else:
-        st.error("File type not supported. Please upload a txt, pdf or docx file.")
+        st.error("File type not supported. Please upload a txt or docx file.")
         st.stop()
 
     # Generate summary
