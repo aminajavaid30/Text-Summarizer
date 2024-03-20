@@ -5,7 +5,6 @@ import fitz  # PyMuPDF
 from transformers import BartForConditionalGeneration, BartTokenizer, pipeline
 import textwrap
 import tempfile
-import torch
 
 # Functions for file reading
 def read_txt(file):
