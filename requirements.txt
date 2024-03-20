@@ -1,5 +1,5 @@
-streamlit==1.32.2
+streamlit
 PyMuPDF
-python-docx==1.1.0
-torch==1.10.0
-transformers==4.38.2
+python-docx
+torch
+transformers
